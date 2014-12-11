@@ -63,6 +63,7 @@ test {
         }
       }
     }
+    useDefaultListeners = true
   }
   options {
     listeners << 'org.uncommons.reportng.HTMLReporter'
