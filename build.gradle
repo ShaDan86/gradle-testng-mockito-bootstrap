@@ -7,11 +7,18 @@ buildscript {
   }
 }
 
+// reference from : http://www.michael-noll.com/blog/2013/01/25/bootstrapping-a-java-project-with-gradle/
+// https://github.com/miguno/gradle-testng-mockito-bootstrap
 apply plugin: 'java'
 apply plugin: 'cobertura'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+// Use for static analysis testing
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
 
 // group is the groupId
 group = 'com.miguno.bootstrap.gtm'
@@ -39,6 +46,9 @@ dependencies {
     ['org.easytesting:fest-assert-core:2.0M10'],
     // workaround for a known issue with TestNG 6.x: explicitly add Guice (Gradle will fail to run tests otherwise)
     ['com.google.inject:guice:3.0']
+    
+    // for static analysis
+    ['org.hamcrest:hamcrest-all:1.3']
   )
 }
 
